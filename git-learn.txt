@@ -1,0 +1,49 @@
+# windows安装
+mysysgit: https://git-for-windows.github.io/
+# mac安装
+git: http://git-scm.com/
+# 代码比较工具
+beyondCompare: http://www.scootersoftware.com/download.php
+
+## 全局配置
+$ git config --global user.name "hub2016"
+
+$ git config --global user.email "meopic@126.com"
+
+## 生成密钥
+$ ssh-keygen -t rsa -C "meopic@126.com"
+
+按3个回车，密码为空
+
+密钥保存位置：C:\Users\Hub2016\\.ssh\id_rsa.pub
+
+## 测试成功
+$ ssh -T git@github.com
+
+Hi hub2016! You've successfully authenticated, but GitHub does not provide shell access
+
+## 初始化
+$ git init
+
+$ git add README.md     //单文件
+
+$ git add .             //所有文件
+
+$ git commit -m "file readme.md"
+
+$ git remote add -u origin git@github.com:hub2016/git-learn.git
+
+$ git push -u origin master
+
+$ git push -u company master
+
+## 删除文件
+$ rm test.html
+
+$ git rm test.html
+
+## 获取代码
+$ git clone git@github.com:hub2016/git-learn.git
+
+$ git pull
+

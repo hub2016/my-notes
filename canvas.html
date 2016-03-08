@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="1000">
+    浏览器当前版本不支持canvas标签
+</canvas>
+<script>
+    //获取画布 还不可以操作
+    var canvas = document.getElementById('canvas');
+    //console.log(canvas);
+    //设置绘图环境
+    var cxt = canvas.getContext('2d');
+    //console.log(cxt);
+    //画一条线段
+    //开始新路径
+    cxt.beginPath();
+    //设定画笔的宽度
+    cxt.lineWidth = 5;
+    //设置画笔的颜色
+    cxt.strokeStyle = "#09f";
+    //设定笔触的位置
+    cxt.moveTo(20, 20);
+    //设置移动的方式
+    cxt.lineTo(20, 120);
+    //画线
+    cxt.stroke();
+    //封闭路径
+    cxt.closePath();
+
+    //画一个空心圆形 凡是路径图形必须先开始路径，画完图之后必须结束路径
+    //开始新路径
+    cxt.beginPath();
+    //重新设置画笔
+    cxt.lineWidth = 3;
+    cxt.strokeStyle = "#9f0";
+    cxt.arc(170, 70, 50, 0, 360, false);
+    cxt.stroke();
+    //封闭路径
+    cxt.closePath();
+
+    //画一个实心圆形
+    //开始新路径
+    cxt.beginPath();
+    //设置填充颜色
+    cxt.fillStyle = "#fc0";
+    cxt.arc(320, 70, 50, 0, 360, false);
+    cxt.fill();
+    //边框
+    cxt.stroke();
+    //封闭路径
+    cxt.closePath();
+
+    //画一个空心矩形
+    cxt.beginPath();
+    cxt.rect(20, 140, 100, 50);
+    cxt.stroke();
+    cxt.closePath();
+    //其他方法 建议使用此方式
+    cxt.strokeRect(140, 140, 100, 50);
+    //实心矩形
+    cxt.beginPath();
+    cxt.rect(260, 140, 100, 50);
+    cxt.fill();
+    cxt.closePath();
+    //其他方法 建议使用此方式
+    cxt.fillRect(380, 140, 100, 50);
+
+    //设置文字
+    cxt.font = '40px 黑体';//css font属性
+    cxt.fillText('Hello Canvas', 20, 240);
+    //将笔触设置为1像素
+    cxt.lineWidth = 1;
+    cxt.strokeText('Hello Canvas', 20, 280);
+
+    //画图 把一副图片画到画布中 注意webkit内核的浏览器不支持
+    var img = new Image();
+    img.src = 'mv.jpg';
+    cxt.drawImage(img, 20, 320, 400, 266);
+
+    //画一个三角形
+    cxt.beginPath();
+    cxt.moveTo(280, 270);
+    cxt.lineTo(380, 220);
+    cxt.lineTo(380, 320);
+    cxt.closePath();//填充或画路径需要先闭合路径再画
+    cxt.stroke();
+    //实心三角形
+    cxt.beginPath();
+    cxt.moveTo(280, 390);
+    cxt.lineTo(380, 340);
+    cxt.lineTo(380, 440);
+    cxt.closePath();//填充或画路径需要先闭合路径再画
+    cxt.fill();
+
+    //设置旋转环境
+    cxt.save();
+    //异次元空间重置0,0的位置
+    cxt.translate(20, 20);
+    //图片 形状旋转
+    //设置旋转角度 参数是弧度 角度0-360 弧度=角度*Math.PI/180
+    cxt.rotate(30 * Math.PI / 180);
+    //旋转一个线段
+    cxt.beginPath();
+    cxt.lineWidth = 5;
+    cxt.strokeStyle = "#09f";
+    cxt.moveTo(0, 0);
+    cxt.lineTo(100, 20);
+    cxt.stroke();
+    cxt.closePath();
+    //将旋转之后的元素放回原画布
+    cxt.restore();
+    //过程不可颠倒 先设置0,0点，再旋转角度，然后画图
+
+    //旋转图片
+    cxt.save();
+    cxt.translate(20, 20);
+    cxt.restore(20, 320);
+    cxt.rotate(10 * Math.PI / 180);
+    cxt.drawImage(img, 0, 0, 400, 266);
+</script>
+</body>
+</html>

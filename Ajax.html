@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax</title>
+</head>
+<body>
+	<script>
+		var request;
+		if(window.XMLHttpRequest){
+			request = new XMLHttpRequest();
+		}else{
+			request = new ActiveXObject("Microsoft.XMLHTTP");	//IE5,IE6
+		}
+		//open(method[GET/POST],url,async[默认：true异步/false同步])
+		//send(string)   参数POST必填
+		request.open("GET","get.php?name=King&sex=male",true);
+		request.send();
+
+		request.open("POST","post.php",true);
+		request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		request.send("name=King&sex=male");
+
+		request.onreadystatechange = function() {
+			if(request.readyState === 4 && request.status === 200){
+				//request.responseText
+			}
+		};
+	</script>
+</body>
+</html>
