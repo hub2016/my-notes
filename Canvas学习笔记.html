@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas</title>
+</head>
+<body>
+<!--
+http://createjs.com/
+<canvas id="canvas" width="200" height="200">
+    浏览器当前版本不支持canvas标签
+</canvas>
+-->
+<script>
+    var CANVAS_WIDTH = 500, CANVAS_HEIGHT = 500;
+    var mycanvas, context;
+
+    window.onload = function () {
+        createCanvas();
+        //drawRect();
+        //drawImage();
+        //drawArc();
+        //drawLine();
+        //drawBezier();
+        //drawLinear();
+        //drawRadial();
+        //drawTSR();
+        //drawComposite();
+        //drawShadow();
+        drawImages();
+    };
+
+    function createCanvas() {
+        document.body.innerHTML = '<canvas id="mycanvas" width="' + CANVAS_WIDTH + '" height="' + CANVAS_HEIGHT + '"></canvas>';
+        mycanvas = document.getElementById('mycanvas');
+        context = mycanvas.getContext('2d');
+    }
+
+    function drawRect() {
+        context.fillStyle = '#F00';
+        //context.rotate(45);
+        //context.translate(200,200);
+        context.scale(2, .5);
+        context.fillRect(0, 0, 200, 200);
+    }
+
+    function drawImage() {
+        var img = new Image();
+        img.onload = function () {
+            context.drawImage(img, 0, 0);
+        };
+        img.src = '1.png';
+    }
+
+    function drawArc() {
+        context.fillStyle = '#EEEEEF';
+        context.fillRect(0, 0, 600, 700);
+        for (var i = 0; i <= 10; i++) {
+            //context.beginPath();
+            context.arc(i * 25, i * 25, i * 10, 0, Math.PI * 2, true);
+            //context.closePath();
+            context.fillStyle = 'rgba(255, 0, 0, .25)';
+            context.fill();
+        }
+    }
+
+    function drawLine() {
+        context.fillStyle = '#EEEEEF';
+        context.fillRect(0, 0, 300, 400);
+        var dx = 150, dy = 150, s = 100;
+        context.beginPath();
+        context.fillStyle = 'rgb(100, 255, 100)';
+        context.strokeStyle = 'rgb(0, 0, 100)';
+        var x = Math.sin(0);
+        var y = Math.cos(0);
+        var dig = Math.PI / 15 * 11;
+        for (var i = 0; i < 30; i++) {
+            x = Math.sin(i * dig);
+            y = Math.cos(i * dig);
+            context.lineTo(dx + x * s, dy + y * s);
+        }
+        context.closePath();
+        context.fill();
+        context.stroke();
+    }
+
+    /*bezierCurveTo*/
+    function drawBezier() {
+        context.fillStyle = '#EEEEEF';
+        context.fillRect(0, 0, 300, 400);
+        var dx = 150, dy = 150, s = 100;
+        context.beginPath();
+        context.fillStyle = 'rgb(100, 255, 100)';
+        //context.strokeStyle = 'rgb(0, 0, 100)';
+        var x = Math.sin(0);
+        var y = Math.cos(0);
+        var dig = Math.PI / 15 * 11;
+        context.moveTo(dx, dy);
+        for (var i = 0; i < 30; i++) {
+            x = Math.sin(i * dig);
+            y = Math.cos(i * dig);
+            context.bezierCurveTo(dx + x * s, dy + y * s - 100, dx + x * s + 100, dy + y * s, dx + x * s, dy + y * s);
+        }
+        context.closePath();
+        context.fill();
+        context.stroke();
+    }
+
+    /*createLinearGradient*/
+    function drawLinear() {
+        var g1 = context.createLinearGradient(0, 0, 0, 300);
+        g1.addColorStop(0, "rgb(255, 255, 0)");
+        g1.addColorStop(1, "rgb(0, 255, 255)");
+        context.fillStyle = g1;
+        context.fillRect(0, 0, 500, 500);
+        var g2 = context.createLinearGradient(0, 0, 300, 0);
+        g2.addColorStop(0, "rgba(0, 0, 255, .5)");
+        g2.addColorStop(1, "rgba(255, 0, 0, .5)");
+        for (var i = 0; i < 10; i++) {
+            context.beginPath();
+            context.fillStyle = g2;
+            context.arc(i * 25, i * 25, i * 10, 0, Math.PI * 2, true);
+            context.closePath();
+            context.fill();
+        }
+    }
+
+    /*createRadialGradient*/
+    function drawRadial() {
+        var g1 = context.createRadialGradient(250, 250, 0, 250, 250, 400);
+        g1.addColorStop(.1, "rgb(255, 255, 0)");
+        g1.addColorStop(.6, "rgb(255, 0, 255)");
+        g1.addColorStop(1, "rgb(0, 255, 255)");
+        context.fillStyle = g1;
+        context.fillRect(0, 0, 500, 500);
+        var g2 = context.createRadialGradient(250, 250, 0, 250, 250, 400);
+        g2.addColorStop(.1, "rgba(0, 0, 255, .5)");
+        g2.addColorStop(.6, "rgba(255, 0, 255, .5)");
+        g2.addColorStop(1, "rgba(255, 0, 0, .5)");
+        for (var i = 0; i < 10; i++) {
+            context.beginPath();
+            context.fillStyle = g2;
+            context.arc(i * 25, i * 25, i * 10, 0, Math.PI * 2, true);
+            context.closePath();
+            context.fill();
+        }
+    }
+
+    /*translate(x,y)平移 scale(x,y)缩放 rotate(deg)旋转*/
+    function drawTSR() {
+        context.fillStyle = '#EEE';
+        context.fillRect(0, 0, 500, 500);
+        context.translate(200, 50);
+        context.fillStyle = 'rgba(255, 0, 0, .25)';
+        for (var i = 0; i < 50; i++) {
+            context.translate(25, 25);
+            context.scale(.95, .95);
+            context.rotate(Math.PI / 10);
+            context.fillRect(0, 0, 100, 50);
+        }
+    }
+
+    /*globalCompositeOperation = type 属性*/
+    /*              "source-atop"
+     "source-in"
+     "source-out"
+     "source-over"
+     "destination-atop"
+     "destination-in"
+     "destination-out"
+     "destination-over"
+     "lighter"
+     "copy"
+     "xor"
+     */
+    function drawComposite() {
+        var oprtns = ["source-atop",
+            "source-in",
+            "source-out",
+            "source-over",
+            "destination-atop",
+            "destination-in",
+            "destination-out",
+            "destination-over",
+            "lighter",
+            "copy",
+            "xor"];
+        var i = parseInt(Math.random() * 10);
+        console.log(i);
+        context.fillStyle = 'blue';
+        context.fillRect(10, 10, 60, 60);
+        context.globalCompositeOperation = oprtns[i];
+        context.closePath();
+        context.fillStyle = 'red';
+        context.arc(60, 60, 30, 0, Math.PI * 2, true);
+        context.fill();
+        context.closePath();
+    }
+
+    /*shadowOffsetX
+     * shadowOffsetY
+     * shadowColor
+     * shadowBlur*/
+    function drawShadow() {
+        var dx = 100, dy = 0, s = 50;
+        context.fillStyle = '#EEEEEF';
+        context.fillRect(0, 0, 500, 500);
+        context.shadowOffsetX = 10;
+        context.shadowOffsetY = 10;
+        context.shadowColor = 'rgba(100, 100, 100, .5)';
+        context.shadowBlur = 3.5;
+        context.translate(0, 50);
+        for (var j = 0; j < 3; j++) {
+            context.translate(100, 100);
+            context.beginPath();
+            context.fillStyle = 'rgba(255, 0, 0, .5)';
+            var x = Math.sin(0);
+            var y = Math.cos(0);
+            var dig = Math.PI / 5 * 4;
+            for (var i = 0; i < 5; i++) {
+                x = Math.sin(i * dig);
+                y = Math.cos(i * dig);
+                context.lineTo(dx + x * s, dy + y * s);
+            }
+            context.closePath();
+            context.fill();
+        }
+
+    }
+
+    /*
+     * drawImage(img, x, y)
+     * drawImage(img, x, y, w, h)
+     * drawImage(img, sx, sy,sw, sh, dx, dy, dw, dh) 源图截取 目标图定位
+     * */
+
+    function drawImages() {
+        context.fillStyle = '#EEEEEF';
+        context.fillRect(0, 0, 500, 500);
+        var img = new Image();
+        img.src = '1.png';
+        img.onload = function () {
+            context.drawImage(img, 100, 100);
+            context.drawImage(img, 0, 0, 100, 100);
+            context.drawImage(img, 30, 30, 40, 40, 170, 170, 100, 100);
+        }
+
+    }
+</script>
+<!--<script>
+    //获取画布 还不可以操作
+    var canvas = document.getElementById('canvas');
+    //console.log(canvas);
+    //设置绘图环境
+    var cxt = canvas.getContext('2d');
+    //console.log(cxt);
+    //画一条线段
+    //开始新路径
+    cxt.beginPath();
+    //设定画笔的宽度
+    cxt.lineWidth = 5;
+    //设置画笔的颜色
+    cxt.strokeStyle = "#09f";
+    //设定笔触的位置
+    cxt.moveTo(20, 20);
+    //设置移动的方式
+    cxt.lineTo(20, 120);
+    //画线
+    cxt.stroke();
+    //封闭路径
+    cxt.closePath();
+
+    //画一个空心圆形 凡是路径图形必须先开始路径，画完图之后必须结束路径
+    //开始新路径
+    cxt.beginPath();
+    //重新设置画笔
+    cxt.lineWidth = 3;
+    cxt.strokeStyle = "#9f0";
+    cxt.arc(170, 70, 50, 0, 360, false);
+    cxt.stroke();
+    //封闭路径
+    cxt.closePath();
+
+    //画一个实心圆形
+    //开始新路径
+    cxt.beginPath();
+    //设置填充颜色
+    cxt.fillStyle = "#fc0";
+    cxt.arc(320, 70, 50, 0, 360, false);
+    cxt.fill();
+    //边框
+    cxt.stroke();
+    //封闭路径
+    cxt.closePath();
+
+    //画一个空心矩形
+    cxt.beginPath();
+    cxt.rect(20, 140, 100, 50);
+    cxt.stroke();
+    cxt.closePath();
+    //其他方法 建议使用此方式
+    cxt.strokeRect(140, 140, 100, 50);
+    //实心矩形
+    cxt.beginPath();
+    cxt.rect(260, 140, 100, 50);
+    cxt.fill();
+    cxt.closePath();
+    //其他方法 建议使用此方式
+    cxt.fillRect(380, 140, 100, 50);
+
+    //设置文字
+    cxt.font = '40px 黑体';//css font属性
+    cxt.fillText('Hello Canvas', 20, 240);
+    //将笔触设置为1像素
+    cxt.lineWidth = 1;
+    cxt.strokeText('Hello Canvas', 20, 280);
+
+    //画图 把一副图片画到画布中 注意webkit内核的浏览器不支持
+    var img = new Image();
+    img.src = 'mv.jpg';
+    cxt.drawImage(img, 20, 320, 400, 266);
+
+    //画一个三角形
+    cxt.beginPath();
+    cxt.moveTo(280, 270);
+    cxt.lineTo(380, 220);
+    cxt.lineTo(380, 320);
+    cxt.closePath();//填充或画路径需要先闭合路径再画
+    cxt.stroke();
+    //实心三角形
+    cxt.beginPath();
+    cxt.moveTo(280, 390);
+    cxt.lineTo(380, 340);
+    cxt.lineTo(380, 440);
+    cxt.closePath();//填充或画路径需要先闭合路径再画
+    cxt.fill();
+
+    //设置旋转环境
+    cxt.save();
+    //异次元空间重置0,0的位置
+    cxt.translate(20, 20);
+    //图片 形状旋转
+    //设置旋转角度 参数是弧度 角度0-360 弧度=角度*Math.PI/180
+    cxt.rotate(30 * Math.PI / 180);
+    //旋转一个线段
+    cxt.beginPath();
+    cxt.lineWidth = 5;
+    cxt.strokeStyle = "#09f";
+    cxt.moveTo(0, 0);
+    cxt.lineTo(100, 20);
+    cxt.stroke();
+    cxt.closePath();
+    //将旋转之后的元素放回原画布
+    cxt.restore();
+    //过程不可颠倒 先设置0,0点，再旋转角度，然后画图
+
+    //旋转图片
+    cxt.save();
+    cxt.translate(20, 20);
+    cxt.restore(20, 320);
+    cxt.rotate(10 * Math.PI / 180);
+    cxt.drawImage(img, 0, 0, 400, 266);
+</script>-->
+</body>
+</html>

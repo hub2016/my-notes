@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Underscore</title>
+    <style>body{color:#000;font:16px/2 arial,"\5FAE\8F6F\96C5\9ED1"}h1{text-align:center;font-size:20px}li{margin-bottom:10px}</style>
+    <script src="//learningcn.com/underscore/underscore-min.js"></script>
+</head>
+<body>
+API：http://learningcn.com/underscore/
+<ul>
+    <li><strong>Underscore Collection</strong></li>
+    <li>_.each</li>
+    <li>_.map 对集合的每个内容进行操作，修改他们的值</li>
+    <li>_.reduce 对数组的每一个元素调用后面的回调函数返回一个值，参数三：初始值</li>
+    <li>_.find 寻找集合中某些符合条件的一些元素，返回第一个找到的值</li>
+    <li>_.filter 寻找集合中某些符合条件的一些元素，返回所有匹配元素的一个集合</li>
+    <li>_.every 把一个集合里面的元素挑出来执行这个回调函数，除非所有返回等于true，整个返回的才是true</li>
+    <li>_.some 把一个集合里面的元素挑出来执行这个回调函数，如果有一个等于true，整个返回的就是true</li>
+    <li>_.pluck 把集合中的某一些属性的值提取出来</li>
+    <li>_.indexBy 对对象集合按照某个键值进行排序，返回数组</li>
+    <li>_.size 把对象里面有多少个键值对打印出来</li>
+</ul>
+<ul>
+    <li><strong>Underscore Array</strong></li>
+    <li>_.compact 去掉数组中一些非真的值</li>
+    <li>_.without 对数组做一个减法</li>
+    <li>_.union 并集</li>
+    <li>_.intersection 交集</li>
+    <li>_.difference 两个集合的不同，返回第一个集合中与第二个有不同的值</li>
+    <li>_.uniq 去重</li>
+    <li>_.indexOf 某一个值在数组中出现的顺序</li>
+    <li>_.lastIndexOf 某一个值在数组中最后出现的顺序</li>
+</ul>
+<ul>
+    <li><strong>Underscore Function</strong></li>
+    <li>_.bind 给函数绑定一个上下文</li>
+    <li>_.bindAll</li>
+    <li>_.once 使内部的函数只执行一次</li>
+    <li>_.after 传入一个数值，使函数在多少次后再执行</li>
+    <li>_.before 传入一个数值，在第几次之前才执行</li>
+    <li>_.throttle 每隔200ms就执行一次log</li>
+    <li>_.debounce 在最后一次输入等待200ms执行ajax</li>
+</ul>
+<ul>
+    <li><strong>Underscore Object</strong></li>
+    <li>_.keys 获取当前对象的所有key值</li>
+    <li>_.values 获取当前对象的所有value值</li>
+    <li>_.invert 把key和value对调</li>
+    <li>_.extend 扩展我们的对象</li>
+    <li>_.pick 寻找我们当前对象中的某一个键所对应的值组成的对象</li>
+    <li>_.omit 除去传入参数一个键值，把剩下的组成一个对象</li>
+    <li>_.defaults 把第二个传入的对象往第一个里面放，如果第一个里面有不去替换，没有就加上</li>
+    <li>_.clone 复制一个对象，浅复制</li>
+    <li>_.isEqual 判断两个对象是否相等</li>
+</ul>
+<script>
+    //Underscore Collection
+    //_.each
+    _.each({a: 1, b: 2, c: 3}, function (val, key) {
+        console.log(key + ": " + val + "; ");
+    });
+    //返回：
+    //a: 1;
+    //b: 2;
+    //c: 3;
+
+    //_.map 对集合的每个内容进行操作，修改他们的值
+    var newMap = _.map(["a", "b", "c"], function (val) {
+        return val + "map";
+    });
+    console.log(newMap);
+    //返回：
+    //["amap", "bmap", "cmap"]
+
+    //_.reduce 对数组的每一个元素调用后面的回调函数返回一个值，参数三：初始值
+    var sum = _.reduce([1, 2, 3], function (me, mo) {
+        return me + mo;
+    }, 5);
+    console.log(sum);
+    //返回：
+    //11
+
+    //_.find 寻找集合中某些符合条件的一些元素，返回第一个找到的值
+    var even = _.find([1, 2, 3, 4, 5, 6], function (num) {
+        return num % 2 === 0;
+    });
+    console.log(even);
+    //返回：
+    //2
+
+    //_.filter 寻找集合中某些符合条件的一些元素，返回所有匹配元素的一个集合
+    var evens = _.filter([1, 2, 3, 4, 5, 6], function (num) {
+        return num % 2 === 0;
+    });
+    console.log(evens);
+    //返回：
+    //[2, 4, 6]
+
+    //_.every 把一个集合里面的元素挑出来执行这个回调函数，除非所有返回等于true，整个返回的才是true
+    var allBigThanFive = _.every([1, 2, 3, 4, 5, 6], function (val) {
+        return val > 5;
+    });
+    console.log(allBigThanFive);
+    //返回：
+    //false
+
+    //_.some 把一个集合里面的元素挑出来执行这个回调函数，如果有一个等于true，整个返回的就是true
+    var isBigThanFive = _.some([1, 2, 3, 4, 5, 6], function (val) {
+        return val > 5;
+    });
+    console.log(isBigThanFive);
+    //返回：
+    //true
+
+    //_.pluck 把集合中的某一些属性的值提取出来
+    var arr = [{name: 'a', age: 20}, {name: 'b', age: 40}];
+    var names = _.pluck(arr, 'name');
+    console.log(names);
+    //返回：
+    //["a", "b"]
+
+    //_.indexBy 对对象集合按照某个键值进行排序，返回数组
+    var array = [{name: 'a', age: 50}, {name: 'b', age: 40}];
+    var sorts = _.indexBy(array, 'age');
+    console.log(sorts);
+    //返回：
+    //Object {40: Object, 50: Object}
+    //  40: Object
+    //      age: 40
+    //      name: "b"
+    //  50: Object
+    //      age: 50
+    //      name: "a"
+
+    //_.size 把对象里面有多少个键值对打印出来
+    var size = _.size({name: 'a', age: 50});
+    console.log(size);
+    //返回：
+    //2
+</script>
+
+<script>
+    //Underscore Array
+    //_.compact 去掉数组中一些非真的值
+    console.log(_.compact([1, 2, null, "", 3, 4]));
+    //返回：
+    //[1, 2, 3, 4]
+
+    //_.without 对数组做一个减法
+    console.log(_.without([1, 2, 3, 4, 5], 2, 3));
+    //返回：
+    //[1, 4, 5]
+
+    //_.union 并集
+    console.log(_.union([1, 2, 3], [3, 4, 5]));
+    //返回：
+    //[1, 2, 3, 4, 5]
+
+    //_.intersection 交集
+    console.log(_.intersection([1, 2, 3], [3, 4, 5]));
+    //返回：
+    //[3]
+
+    //_.difference 两个集合的不同，返回第一个集合中与第二个有不同的值
+    console.log(_.difference([1, 2, 3], [3, 4, 5]));
+    //返回：
+    //[1, 2]
+
+    //_.uniq 去重
+    console.log(_.uniq([1, 2, 3, 3, 1, 4, 5]));
+    //返回：
+    //[1, 2, 3, 4, 5]
+
+    //_.indexOf 某一个值在数组中出现的顺序
+    console.log(_.indexOf([1, 2, 3, 4, 5], 4));
+    //返回：
+    //3
+
+    //_.lastIndexOf 某一个值在数组中最后出现的顺序
+    console.log(_.lastIndexOf([1, 2, 5, 3, 4, 5], 5));
+    //返回：
+    //5
+</script>
+
+<script>
+    //Underscore Function
+    //_.bind 给函数绑定一个上下文
+    var func = function () {
+        return 'hello ' + this.name + "!";
+    };
+    func = _.bind(func, {name: 'world'});
+    console.log(func());
+    //返回
+    //hello world!
+
+    //_.bindAll
+    var buttonView = {
+        label: 'underscore',
+        onClick: function () {
+            alert('click' + this.label);
+        },
+        onHover: function () {
+            alert('hover' + this.label);
+        }
+    };
+    _.bindAll(buttonView, 'onClick', 'onHover');
+    //$('#id').bind('click', buttonView.onClick);
+
+    //_.once 使内部的函数只执行一次
+    var alertFunc = _.once(function () {
+        console.log('hello world!');
+    });
+    alertFunc();
+    alertFunc();
+    alertFunc();
+    //返回
+    //hello world!
+
+    //_.after 传入一个数值，使函数在多少次后再执行
+    var afterFunc = _.after(2, function () {
+        console.log('hello world!');
+    });
+    afterFunc();//这次没执行
+    afterFunc();//>=2才执行
+    afterFunc();
+    //返回
+    //hello world!
+    //hello world!
+
+    //_.before 传入一个数值，在第几次之前才执行
+    var beforeFunc = _.before(2, function () {
+        console.log('hello world!');
+    });
+    beforeFunc();//这执行了一次
+    beforeFunc();//>=2就不执行
+    beforeFunc();
+    //返回
+    //hello world!
+
+    //_.throttle 每隔200ms就执行一次log
+    //$(window).scroll(_.throttle(log, 200));
+
+    //_.debounce 在最后一次输入等待200ms执行ajax
+    //$(input).keyup(_.debounce(ajax, 200));
+</script>
+
+<script>
+    //Underscore Object
+    //_.keys 获取当前对象的所有key值
+    console.log(_.keys({one: 1, two: 2, three: 3}));
+    //返回：
+    //["one", "two", "three"]
+
+    //_.values 获取当前对象的所有value值
+    console.log(_.values({one: 1, two: 2, three: 3}));
+    //返回：
+    //[1, 2, 3]
+
+    //_.invert 把key和value对调
+    console.log(_.invert({one: 1, two: 2, three: 3}));
+    //返回：
+    //Object {1: "one", 2: "two", 3: "three"}
+
+    //_.extend 扩展我们的对象
+    console.log(_.extend({name: 'a'}, {age: 30}));
+    //返回：
+    //Object {name: "a", age: 30}
+
+    //_.pick 寻找我们当前对象中的某一个键所对应的值组成的对象
+    console.log(_.pick({name: "a", age: 30}, 'name'));
+    //返回：
+    //Object {name: "a"}
+
+    //_.omit 除去传入参数一个键值，把剩下的组成一个对象
+    console.log(_.omit({name: "a", age: 30, sex: 'male'}, 'sex'));
+    //返回：
+    //Object {name: "a", age: 30}
+
+    //_.defaults 把第二个传入的对象往第一个里面放，如果第一个里面有不去替换，没有就加上
+    console.log(_.defaults({name: "a", age: 30}, {name: "b", age: 50, sex: 'male'}));
+    //返回：
+    //Object {name: "a", age: 30, sex: "male"}
+
+    //_.clone 复制一个对象，浅复制
+    var obj = {name:'a'};
+    var objFake = _.clone(obj);
+    console.log(obj);
+    console.log(objFake);
+    //返回：
+    //Object {name: "a"}
+    //Object {name: "a"}
+
+    //_.isEqual 判断两个对象是否相等
+    console.log(obj == objFake);
+    console.log(_.isEqual(obj, objFake));
+    //返回：
+    //false
+    //true
+</script>
+</body>
+</html>

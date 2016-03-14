@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Css</title>
+    <style>body{font:1pc/2 arial,\\5FAE\8F6F\96C5\9ED1;color:#000}h1{font-size:20px;text-align:center}.not-select{-webkit-user-select:none;-moz-user-select:none;user-select:none}li{margin-bottom:10px}code{display:block;border-left:6px solid #e44b23;padding:8px 10px;line-height:24px;background-color:#000;color:#fff;margin-bottom:5px}code::-moz-selection{background:#fff8c9;color:#000}code::selection{background:#fff8c9;color:#000}</style>
+</head>
+<body>
+<h1 class="not-select">不常用或不易记的Css代码</h1>
+<ul>
+    <li>
+        单行文字省略号：
+        <code>overflow:hidden;text-overflow:ellipsis;white-space:nowrap;</code>
+    </li>
+    <li>
+        多行文字省略号line-clamp（非标准CSS属性，必须与其他属性配合使用）：
+        <code>overflow:hidden;text-overflow:ellipsis;display:
+            -webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;</code>
+    </li>
+    <li>
+        清除浮动的3种方式：
+        <code>浮动后的元素加：clear:both;</code>
+        <code>浮动的父元素加：width:100%;overflow:hidden;</code>
+        <code>浮动的父元素加：{zoom:1}<br>:after{content:'';display:block;height:0;clear:both;visibility:hidden}</code>
+    </li>
+    <li>
+        带透明度遮罩层写法：
+        <code>border:none;background-color:#000;opacity:.8;zoom:1;filter:alpha(opacity=80);margin:0;padding:
+            0;width:100%;height:100%;top:0;left:0;cursor:auto;position:fixed;_position:absolute</code>
+    </li>
+    <li>
+        placeholder颜色自定义：
+        <code>::-webkit-input-placeholder{color:#f00;} /* WebKit browsers */<br>:-moz-placeholder{color:#f00;} /* Mozilla Firefox 4 to 18 */<br>::-moz-placeholder{color:#f00;} /* Mozilla Firefox 19+ */<br>:-ms-input-placeholder{color:#f00;} /* Internet Explorer 10+ */</code>
+    </li>
+    <li>
+        Chrome字体大小小于12px：
+        <code>-webkit-text-size-adjust:none; /*新版已无效*/</code>
+        <code>display:block;font-size:12px;-webkit-transform:scale(0.8);</code>
+    </li>
+    <li>
+        禁止选择文本（试试选择本页面的标题，主要用于移动端）：
+        <code>-webkit-user-select:none;-moz-user-select:none;user-select:none;</code>
+    </li>
+    <li>
+        iOS滚动：
+        <code>-webkit-overflow-scrolling:touch;</code>
+    </li>
+    <li>
+        自定义被选中文本的背景颜色、文字颜色：
+        <code>::-moz-selection{background:#FE6E66;color:#FFF;}::selection{background:#FE6E66;color:#FFF;}</code>
+    </li>
+    <li>
+        英文字大写、小写、首字大写、将小写字母转化为小型大写字母
+        <code>text-transform:uppercase;text-transform:lowercase;text-transform:capitalize;font-variant:small-caps;</code>
+    </li>
+    <li>
+        文字阴影特效
+        <div style="color:#D1D1D1;font-size:x-large;text-shadow:-1px -1px #FFF, 1px 1px #000">凸凸特效</div>
+        <code>{text-shadow:-1px -1px #FFF, 1px 1px #000}</code>
+        <div style="color:#D1D1D1;font-size:x-large;text-shadow:1px 1px #FFF, -1px -1px #000">凹凹特效</div>
+        <code>{text-shadow:1px 1px #FFF, -1px -1px #000}</code>
+        <div style="color:#D1D1D1;font-size:x-large;text-shadow:-1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000">轮廓特效</div>
+        <code>{text-shadow:-1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000}</code>
+        <div style="color:#D1D1D1;font-size:x-large;text-shadow:0 0 0.2em #000">一层发光</div>
+        <code>一层发光{text-shadow:0 0 0.2em #000}</code>
+        <div style="color:#D1D1D1;font-size:x-large;text-shadow:0 0 0.2em #000, 0 0 0.2em #000">二层发光</div>
+        <code>二层发光{text-shadow:0 0 0.2em #000, 0 0 0.2em #000}</code>
+        <div style="color:#D1D1D1;font-size:x-large;text-shadow:0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000">三层发光</div>
+        <code>三层发光{text-shadow:0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000}</code>
+    </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!--
+Web Storage支持的属性和方法
+getItem(key)方法：获取指定key所在存储的value值
+key(index)方法：返回列表中对应索引的key值
+length属性：返回key/value对列表的长度
+removeItem(key)方法：从Storage中删除一个对应的键值对
+setItem(key, value)方法：将value存储到key指定的字段
+clear()方法：移除Storage中所有的key/value对
+-->
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Storage</title>
+</head>
+<body>
+<h2>简单的web存储留言板</h2>
+<textarea cols="30" rows="10" id="t1"></textarea>
+<button type="button" onclick="addInfo()">留言</button>
+<button type="button" onclick="cleanInfo()">清除留言</button>
+<textarea cols="30" rows="10" id="show" readonly></textarea>
+<script>
+    function addInfo(){
+        var info = document.getElementById("t1");
+        var lStorage = window.sessionStorage;  //获取sessionStorage对象
+        //判断对象中是否有myBoard这个键
+        if(lStorage.myBoard){
+            var date = new Date();
+            //获取原来键所对应的值再加上文本框中输入的留言信息
+            lStorage.myBoard += info.value + "\n发表时间：" + date.toLocaleString() + "\n";
+        }else{
+            var date = new Date();
+            lStorage.myBoard = info.value + "\n发表时间：" + date.toLocaleString() + "\n";
+        }
+        upInfo();
+    }
+
+    function upInfo(){
+        var lStorage = window.sessionStorage;  //获取sessionStorage对象
+        var show = document.getElementById("show");
+        if(lStorage.myBoard){
+            show.value = lStorage.getItem("myBoard");
+        }else{
+            show.value ="";
+        }
+    }
+
+    function cleanInfo(){
+        window.sessionStorage.removeItem("myBoard");
+        upInfo();
+    }
+</script>
+</body>
+</html>
