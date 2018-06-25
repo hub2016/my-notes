@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-style指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>指定元素的 style 属性</h1>
+	<div ng-controller="myCtrl">
+		<h1 ng-style="myObj">Angular</h1>
+	</div>
+	<p>说明：为 HTML 元素添加 style 属性，属性值必须是对象，表达式返回的也是对象，对象由 CSS 属性和值注册，即 key=>value 对。</p>
+	<script>
+		angular.module("myApp",[]).controller("myCtrl",function($scope) {
+			$scope.myObj = {
+		        "color" : "white",
+		        "background-color" : "coral",
+		        "font-size" : "60px",
+		        "padding" : "50px"
+		    };
+		});
+	</script>
+</body>
+</html>

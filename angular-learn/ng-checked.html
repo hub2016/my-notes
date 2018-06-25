@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-checked指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>规定元素是否被选中</h1>
+	<p>My：</p>
+	<input type="checkbox" ng-model="all"> Check all<br><br>
+	<input type="checkbox" ng-checked="all"> HTML<br>
+	<input type="radio" ng-checked="all"> CSS<br>
+	<input type="checkbox" ng-checked="all"> JavaScript<br>
+	返回值：{{all}}<br>
+	<p>说明：设置复选框或单选框的checked属性，ng-checked返回true选中。</p>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Node</title>
+    <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+
+<h2>Node中的全局对象</h2>
+<h3>global</h3>
+<h5>——__dirname //文件所在目录 d:\learn\react</h5>
+<h5>——__filename //包含文件名的绝对路径 d:\learn\react\global.js</h5>
+<h5>console</h5>
+<ul>
+    <li>——console.log()</li>
+    <li>——console.info()</li>
+    <li>——console.error()</li>
+    <li>——console.warn()</li>
+    <li>输出日志重定向：node global.js 1> log.txt 2> error.txt</li>
+    <li>输出日志重定向：node global.js 1> log.txt 2>&1</li>
+    <li>——console.time() //创建一个计时器</li>
+    <li>——console.timeEnd()</li>
+</ul>
+<h5>process</h5>
+<ul>
+    <li>——process.stdout（标准信息输出）/process.stderr（标准错误输出）</li>
+    <li>——process.stdin（键盘输入）</li>
+    <li>——process.cwd //当前工作目录，执行node命令所在的目录</li>
+    <li>——process.on<br>
+        "exit"<br>
+        "SIGINT"
+    </li>
+    <li>——process.argv //返回数组，参数从[2]开始</li>
+</ul>
+<h5>模块和包</h5>
+<ul>
+    <li>
+        模块：一个实现某些特定功能的文件，以实现模块化编程<br>
+        ——通过 require(模块名)引入模块<br>
+        ——模块中的功能(如：变量、函数)通过赋给 exports 对象的某个属性提供给调用者使用
+    </li>
+    <li>
+        包：就是一个文件夹，它将模块封装起来，用于发布、更新、依赖管理和版本控制<br>
+        ——通过 package.json 来描述包想信息：入口文件，依赖的外部包等等<br>
+        ——通过 npm install 命令来安装包，并通过 require 使用包<br>
+        ——通过 npm remove 命令来删除包
+    </li>
+</ul>
+<h5>文件相关操作</h5>
+<ul>
+    <li>
+        ——fs<br>
+        require('fs')<br>
+        fs.readFile(filepath, 'utf-8', function(err, data){}) //异步读取——非阻塞<br>
+        var data = fs.readFileSync(filepath, 'utf-8') //同步读取——阻塞
+    </li>
+    <li>
+        ——path<br>
+        require('path')<br>
+        path.sep //separator 路径的分隔符<br>
+        path.extname() //获取文件扩展名
+    </li>
+</ul>
+<h5>Http Server</h5>
+<ul>
+    <li>
+        require('http')<br>
+        ——var server = http.createServer(cb)<br>
+        ——server.listen(port)
+    </li>
+    <li>
+        require('url')<br>
+        ——parse
+    </li>
+</ul>
+</body>
+</html>

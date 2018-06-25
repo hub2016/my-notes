@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-non-bindable指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>规定元素或子元素不能绑定数据</h1>
+	<div ng-non-bindable>
+		这个代码不需要使用 AngularJS: {{ 5+5 }}
+	</div>
+	<p>说明：告诉 AngularJS 当前的 HTML 元素或其子元素不需要编译。</p>
+</body>
+</html>

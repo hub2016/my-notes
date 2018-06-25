@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-cloak指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>在应用正要加载时防止其闪烁</h1>
+	<p ng-cloak>
+		{{5+5}}
+	</p>
+	<p>说明：防止AngularJS代码未加载完而出现的问题。</p>
+</body>
+</html>

@@ -1,0 +1,39 @@
+body {
+    font: 16px/2 arial, "\5FAE\8F6F\96C5\9ED1";
+    color: #000;
+}
+
+h1 {
+    font-size: 20px;
+    text-align: center;
+}
+
+.not-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+code {
+    display: block;
+    border-left: 6px solid #E44B23;
+    padding: 8px 10px;
+    line-height: 24px;
+    background-color: #000;
+    color: #FFF;
+    margin-bottom: 5px;
+}
+
+code::-moz-selection {
+    background: #FFF8C9;
+    color: #000;
+}
+
+code::selection {
+    background: #FFF8C9;
+    color: #000;
+}

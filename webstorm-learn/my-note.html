@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="box1" class="box" style="width: 400px;height:400px;float: left;background-color: #00d7ca"></div>
+<div id="box2" class="box" style="width: 400px;height:400px;float: left;background-color: #090903"></div>
+<img id="img1" src="1.png" alt="图片拖放">
+<div id="msg"></div>
+<script>
+    var box1Div, msgDiv, img1;
+    window.onload = function () {
+        box1Div = document.getElementById("box1");
+        box2Div = document.getElementById("box2");
+        msgDiv = document.getElementById("msg");
+        img1 = document.getElementById("img1");
+
+        /*box1Div.ondragenter = function (e) {
+            showObj(e);
+        }*/
+
+        box1Div.ondragover = function (e) {
+            e.preventDefault();
+        }
+
+        box2Div.ondragover = function (e) {
+            e.preventDefault();
+        }
+
+        img1.ondragover = function (e) {
+            e.preventDefault();
+        }
+
+        img1.ondragstart = function (e) {
+            e.dataTransfer.setData("imgId","img1");
+        }
+
+        box1Div.ondrop = dropImghandle;
+        box2Div.ondrop = dropImghandle;
+    }
+
+    function dropImghandle(e) {
+        showObj(e.dataTransfer);
+        e.preventDefault();
+        var img = document.getElementById(e.dataTransfer.getData("imgId"));
+        e.target.appendChild(img);
+    }
+
+    function showObj(obj) {
+        var s = "";
+        for (var k in obj) {
+            s += k + ":" + obj[k] + "<br>";
+        }
+        msgDiv.innerHTML = s;
+    }
+</script>
+</body>
+</html>

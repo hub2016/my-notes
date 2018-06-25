@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-class指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>指定 HTML 元素使用的 CSS 类</h1>
+	<select ng-model="home">
+		<option value="sky">sky</option>
+		<option value="tomato">tomato</option>
+	</select>
+	<div ng-class="home">
+		<h1>Welcome Home!</h1>
+		<p>I like it!</p>
+	</div>
+	<p>说明：给元素动态绑定一个或多个CSS类；ng-class的值可以是字符串、对象或数组。<br>
+	字符串：多个类用空格分隔<br>
+	对象：key-value对，key为布尔值，value为类名，key为true的才会添加<br>
+	数组：可以是字符串或对象组合组成，数组的元素可以是字符串或对象。</p>
+</body>
+</html>

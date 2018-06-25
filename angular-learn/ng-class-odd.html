@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-class-odd指令</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+	.striped{color: #FFF;background-color:#666;}
+	</style>
+</head>
+<body>
+	<h1>类似 ng-class，但只在奇数行起作用</h1>
+	<table ng-controller="myCtrl">
+		<tr ng-repeat="x in records" ng-class-odd="'striped'">
+			<td>{{x.Name}}</td>
+			<td>{{x.Country}}</td>
+		</tr>
+	</table>
+	<p>说明：类似ng-class，但只在奇数行起作用。</p>
+	<script>
+		angular.module("myApp",[]).controller("myCtrl",function($scope) {
+			$scope.records = [
+				{Name:"Hub",Country:"China"},
+				{Name:"King",Country:"England"}
+			];
+		});
+	</script>
+</body>
+</html>

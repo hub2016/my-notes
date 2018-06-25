@@ -1,0 +1,405 @@
+# 前端工程师技能图谱
+
+## 浏览器
+	  - IE6/7/8/9/10/11 (Trident)
+	  - Firefox (Gecko)
+	  - Chrome/Chromium (Blink)
+	  - Safari (WebKit)
+	  - Opera (Blink)
+
+## 编程语言
+	  - JavaScript/Node.js
+	  - CoffeeScript
+	  - TypeScript
+
+## 切页面
+	  - HTML/HTML5
+	  - CSS/CSS3
+	  - Sass/LESS/Stylus
+	  - PhotoShop/Paint.net/Fireworks/GIMP/Sketch
+
+## 开发工具
+
+### 编辑器和IDE
+	- VIM/Sublime Text2
+	- Notepad++/EditPlus
+	- WebStorm
+	- Emacs EmacsWiki
+	- Brackets
+	- Atom
+	- Lime Text
+	- Light Table
+	- Codebox
+	- TextMate
+	- Neovim
+	- Komodo IDE / Edit
+	- Eclipse
+	- Visual Studio/Visual Studio Code
+	- NetBeans
+	- Cloud9 IDE
+	- HBuilder
+	- Nuclide    
+
+### 调试工具
+    - Firebug/Firecookie
+    - YSlow
+    - IEDeveloperToolbar/IETester
+    - Fiddler
+    - Chrome Dev Tools
+    - Dragonfly
+    - DebugBar
+    - Venkman
+
+### 版本管理
+    - Git/SVN/Mercurial
+    - Github/GitLab/Bitbucket/Gitorious/GNU Savannah/Launchpad/SourceForge/TeamForge
+
+## 代码质量
+
+### Coding style
+    - JSLint/JSHint/jscs
+    	检测javascript语法规范
+    - CSSLint
+    	检测css语法规范
+    - Markup Validation Service
+		网页W3C标准语法验证
+    	http://validator.w3.org/
+    - HTML Validators
+    	网页验证
+    	https://validator.whatwg.org/
+    	https://html5.validator.nu/
+
+### 单元测试
+    - QUnit/Jasmine
+    - Mocha/Should/Chai/Expect
+    - Unit JS
+
+### 自动化测试
+    - WebDriver/Protractor/Karma Runner/Sahi
+    - phantomjs
+    - SourceLabs/BrowserStack
+
+## 前端库/框架
+	  - jQuery/Underscore/Mootools/Prototype.js
+	  - YUI3/Dojo/ExtJS/KISSY
+	  - Backbone/KnockoutJS/Emberjs
+	  - AngularJS
+	    - Batarang
+	  - Bootstrap
+	  - Semantic UI
+	  - Juice UI
+	  - Web Atoms
+	  - Polymer
+	  - Dhtmlx
+	  - qooxdoo
+	  - React
+	  - Brick
+
+## 前端标准/规范
+    - HTTP/1.1: RFCs 7230-7235
+    - HTTP/2
+    - ECMAScript 5/6/7
+    - W3C: DOM/BOM/XHTML/XML/JSON/JSONP/...
+    - CommonJS Modules/AMD
+    - HTML5/CSS3
+    - Semantic Web
+      - MicroData
+      - RDFa
+    - Web Accessibility
+      - WCAG
+      - Role Attribute
+      - WAI-ARIA
+
+## 性能
+    - JSPerf
+    - YSlow 35 rules
+    - PageSpeed
+    - HTTPWatch
+    - DynaTrace's Ajax
+    - 高性能JavaScript
+
+## SEO
+
+## 编程知识储备
+	  - 数据结构
+	  - OOP/AOP
+	  - 原型链/作用域链
+	  - 闭包
+	  - 编程范型
+	  - 设计模式
+	  - Javascript Tips
+
+## 部署流程
+
+### 压缩合并
+    - YUI Compressor
+    	http://developer.yahoo.com/yui/compressor/
+    	需要JDK支持
+    - Google Clousure Complier
+    	https://developers.google.com/closure/compiler/
+    - UglifyJS
+		http://lisperator.net/uglifyjs/
+		npm install uglify-js
+		输出uglifyjs.js：uglifyjs --self -c -m -o /tmp/uglifyjs.js  （需新建好目录tmp及空文件uglifyjs.js）
+    - CleanCSS
+    	http://www.cleancss.com/
+    	https://github.com/jakubpawlowicz/clean-css
+    	npm install clean-css
+    	单文件压缩：cleancss -o public-min.css public.css
+    	多文件压缩（Win）：type one.css two.css three.css | cleancss -o merged-and-minified.css
+    	多文件压缩（Unix）：cat one.css two.css three.css | cleancss -o merged-and-minified.css
+
+###  文档输出
+    - JSDoc
+    - Dox/Doxmate/Grunt-Doxmate
+
+###  项目构建工具
+    - make/Ant
+    - GYP
+    - Grunt
+    	npm install -g grunt-cli
+    	npm install grunt --save-dev  （在当前目录安装grunt的同时，顺便把grunt保存为这个目录的开发依赖项）
+    	插件：http://www.gruntjs.net/plugins
+    	常用：contrib-jshint——javascript语法错误检查；
+    		  https://www.npmjs.com/package/grunt-contrib-jshint
+    		  npm install grunt-contrib-jshint --save-dev
+
+			  contrib-watch——实时监控文件变化、调用相应的任务重新执行；
+			  https://www.npmjs.com/package/grunt-contrib-watch
+			  npm install grunt-contrib-watch --save-dev
+
+			  contrib-clean——清空文件、文件夹；
+
+			  contrib-uglify——压缩javascript代码；
+			  https://www.npmjs.com/package/grunt-contrib-uglify
+			  npm install grunt-contrib-uglify --save-dev
+
+			  contrib-copy——复制文件、文件夹；
+
+			  contrib-concat——合并多个文件的代码到一个文件中；
+
+			  karma——前端自动化测试工具；
+
+    - Gulp
+    - Yeoman
+    - FIS
+    - Mod
+
+## 代码组织
+
+### 类库模块化
+    - CommonJS/AMD
+    - YUI3模块
+
+### 业务逻辑模块化
+    - bower/component
+
+### 文件加载
+    - LABjs
+    - SeaJS/Require.js
+
+### 模块化预处理器
+    - Browserify
+
+## 安全
+	  - CSRF/XSS
+	  - CSP
+	  - Same-origin policy
+	  - ADsafe/Caja/Sandbox
+
+## 移动Web
+	  - HTML5/CSS3
+	  - 响应式网页设计
+	  - Zeptojs/iScroll
+	  - V5/Sencha Touch
+	  - PhoneGap (Cordova)
+	  - Ionic
+	  - jQuery Mobile
+	  - W3C Mobile Web Initiative
+	  - W3C mobileOK Checker
+	  - Open Mobile Alliance
+
+## 前沿技术社区/会议
+	  - D2/WebRebuild
+	  - NodeParty/W3CTech/HTML5梦工厂
+	  - JSConf/沪JS(JSConf.cn)
+	  - QCon/Velocity/SDCC
+	  - JSConf/NodeConf
+	  - CSSConf
+	  - YDN/YUIConf
+	  - HybridApp
+	  - WHATWG
+	  - MDN
+	  - codepen
+	  - w3cplus
+	  - CNode
+
+## 计算机知识储备
+	  - 编译原理
+	  - 计算机网络
+	  - 操作系统
+	  - 算法原理
+	  - 软件工程/软件测试原理
+	  - Unicode
+
+## 软技能
+	  - 知识管理/总结分享
+	  - 沟通技巧/团队协作
+	  - 需求管理/PM
+	  - 交互设计/可用性/可访问性知识
+
+## 可视化
+	  - SVG/Canvas/VML
+	  - SVG: D3/Raphaël/Snap.svg/DataV
+	  - Canvas: CreateJS/KineticJS
+	  - WebGL/Three.JS
+
+
+
+
+1、DOM结构——两个节点之间可能存在哪些关系以及如何在节点之间任意移动。
+document.documentElement     返回文档的根节点<html> 
+document.body     <body> 
+document.activeElement 返回当前文档中被击活的标签节点(ie) 
+event.fromElement        返回鼠标移出的源节点(ie) 
+event.toElement       返回鼠标移入的源节点(ie) 
+event.srcElement     返回激活事件的源节点(ie) 
+event.target         返回激活事件的源节点(firefox) 
+当前对象为node 
+返回父节点：node.parentNode, node.parendElement, 
+返回所有子节点：node.childNodes（包含文本节点及标签节点）,node.children 
+返回第一个子节点：node.firstChild 
+返回最后一个子节点： node.lastChild 
+返回同属上一个子节点：node.nextSibling 
+返回同属下一个子节点：node.previousSibling 
+parentNode和parentElement功能一样，childNodes和children功能一样。但是parentNode和
+childNodes是符合W3C标准的，可以说比较通用。而另外两个只是IE支持，不是标准，Firefox就不支持 
+,所以大家只要记得有parentElement和children就行了 
+
+2、DOM操作——怎样添加、移除、移动、复制、创建和查找节点。
+（1）创建新节点
+      createDocumentFragment()    //创建一个DOM片段
+      createElement()   //创建一个具体的元素
+      createTextNode()   //创建一个文本节点
+（2）添加、移除、替换、插入
+      appendChild()
+      removeChild()
+      replaceChild()
+      insertBefore()
+（3）查找
+      getElementsByTagName()    //通过标签名称
+      getElementsByName()    //通过元素的Name属性的值
+      getElementById()    //通过元素Id，唯一性
+
+3、事件——怎样使用事件以及IE和DOM事件模型之间存在哪些主要差别。
+（1）冒泡型事件：事件按照从最特定的事件目标到最不特定的事件目标(document对象)的顺序触发。
+  IE 5.5: div -> body -> document
+  IE 6.0: div -> body -> html -> document
+  Mozilla 1.0: div -> body -> html -> document -> window
+（2）捕获型事件(event capturing)：事件从最不精确的对象(document 对象)开始触发，然后到最精确(也可以在窗口级别捕获事件，不过必须由开发人员特别指定)。
+（3）DOM事件流：同时支持两种事件模型：捕获型事件和冒泡型事件，但是，捕获型事件先发生。两种事件流会触及DOM中的所有对象，从document对象开始，也在document对象结束。
+  DOM事件模型最独特的性质是，文本节点也触发事件(在IE中不会)。
+
+4、XMLHttpRequest——这是什么、怎样完整地执行一次GET请求、怎样检测错误。
+XMLHttpRequest 对象提供了在网页加载后与服务器进行通信的方法。
+
+<script type="text/javascript">
+    var xmlhttp;
+    function loadXMLDoc(url){
+        xmlhttp = null;
+        if(window.XMLHttpRequest){    //code for all new browsers
+            xmlhttp = new XMLHttpRequest();
+        }else if(window.ActiveXObject){    //code for IE5 and IE6
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        if(xmlhttp != null){
+            xmlhttp.onreadystatechange = state_Change;
+            xmlhttp.open("GET",url,true);
+            xmlhttp.send(null);
+        }else{
+        	alert("Your browser does not support XMLHTTP.");
+        }
+}
+
+function state_Change(){
+    if(xmlhttp.readyState==4){    //4 = "loaded"
+        if(xmlhttp.status==200){    //200 = OK
+            //...our code here...
+        }else{
+            alert("Problem retrieving XML data");
+        }
+    }
+}
+
+loadXMLDoc("http://yoururl");
+</script>
+
+5、严格模式与混杂模式——如何触发这两种模式，区分它们有何意义。
+在标准模式中，浏览器根据规范呈现页面；
+在混杂模式中，页面以一种比较宽松的向后兼容的方式显示。
+浏览器根据DOCTYPE是否存在以及使用的哪种DTD来选择要使用的呈现方法。如果XHTML文档包含形式完整的DOCTYPE，那么它一般以标准模式
+呈现。对于HTML 
+4.01文档，包含严格DTD的DOCTYPE常常导致页面以标准模式呈现。包含过渡DTD和URI的DOCTYPE也导致页面以标准模式呈现，但是有过
+渡DTD而没有URI会导致页面以混杂模式呈现。DOCTYPE不存在或形式不正确会导致HTML和XHTML文档以混杂模式呈现。
+
+6、盒模型——外边距、内边距和边框之间的关系，IE 8以下版本的浏览器中的盒模型有什么不同。
+一个元素盒模型的层次从内到外分别为：内边距、边框和外边距
+IE8以下浏览器的盒模型中定义的元素的宽高不包括内边距和边框
+
+7、块级元素与行内元素——怎么用CSS控制它们、它们怎样影响周围的元素以及你觉得应该如何定义它们的样式。
+块级元素，用CSS中的display:inline;属性则变为行内元素
+行内元素，用CSS中的display:block;属性则变为块级元素
+影响：周围元素显示在同一行或换行显示，根据具体情况调整样式
+
+8、浮动元素——怎么使用它们、它们有什么问题以及怎么解决这些问题。
+需要浮动的元素可使用CSS中float属性来定义元素的浮动位置，left：往左浮动，right：往右浮动
+浮动元素引起的问题：
+（1）父元素的高度无法被撑开，影响与父元素同级的元素
+（2）与浮动元素同级的非浮动元素会跟随其后
+（3）若非第一个元素浮动，则该元素之前的元素也需要浮动，否则会影响页面显示的结构
+解决方法：
+使用CSS中的clear:both;属性来清除元素的浮动可解决2、3问题，对于问题1，添加如下样式，给父元素添加clearfix样式：
+.clearfix:after{content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+.clearfix{display: inline-block;}  /* for IE/Mac */
+
+9、HTML与XHTML——二者有什么区别，你觉得应该使用哪一个并说出理由。
+主要区别：
+     XHTML 元素必须被正确地嵌套
+     XHTML 元素必须被关闭，空标签也必须被关闭，如 <br> 必须写成 <br />
+     XHTML 标签名必须用小写字母
+     XHTML 文档必须拥有根元素
+     XHTML 文档要求给所有属性赋一个值
+     XHTML 要求所有的属性必须用引号""括起来
+     XHTML 文档需要把所有 < 、>、& 等特殊符号用编码表示
+     XHTML 文档不要在注释内容中使“--”
+     XHTML 图片必须有说明文字
+     XHTML 文档中用id属性代替name属性
+
+10、JSON——它是什么、为什么应该使用它、到底该怎么使用它，说出实现细节来。
+JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。
+JSON建构于两种结构：
+“名称/值”对的集合（A collection of name/value pairs）。
+不同的语言中，它被理解为对象（object），纪录（record），结构（struct），字典（dictionary），哈希表（hash table），有键列表（keyed list），或者关联数组 （associative array）。 
+值的有序列表（An ordered list of values）。在大部分语言中，它被理解为数组（array）。
+
+
+校验json：http://www.jsonlint.com
+
+
+Velocity China 2015 前端性能优化
+http://list.youku.com/albumlist/show?id=26042961&ascending=1&page=1
+听云 前端性能检测
+http://www.tingyun.com/
+合并手持设备的触摸事件及鼠标系统
+https://github.com/jquery/PEP
+
+html{font-size: 32px;}
+//iphone 6 
+@media (min-device-width : 375px) {
+   html{font-size: 64px;}
+}
+// iphone6 plus 
+@media (min-device-width : 414px) {
+    html{font-size: 75px;}
+}
+*/

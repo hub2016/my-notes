@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-repeat指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>定义集合中每项数据的模板</h1>
+	<ul ng-controller="myCtrl">
+		<li ng-repeat="x in records">
+			{{x}}
+		</li>
+	</ul>
+	<ul ng-controller="myCtrl2">
+		<li ng-repeat="x in infos">
+			{{x.Name}}，{{x.Country}}
+		</li>
+	</ul>
+	<ul ng-controller="myCtrl3">
+		<li ng-repeat="(x,y) in myObj">
+			{{x}}，{{y}}
+		</li>
+	</ul>
+	<p>说明：循环输出指定次数的 HTML 元素，集合必须是数组或对象。
+	表达式实例规则:<br>
+		x in records<br>
+		(key, value) in myObj<br>
+		x in records track by $id(x)</p>
+	<script>
+		var app = angular.module("myApp",[]);
+		app.controller("myCtrl",function($scope) {
+			$scope.records = [
+		        "Angular1",
+		        "Angular2",
+		        "Angular3",
+		        "Angular4",
+		    ];
+		});
+		app.controller("myCtrl2",function($scope) {
+			$scope.infos = [
+		       {
+		            "Name" : "Alfreds Futterkiste",
+		            "Country" : "Germany"
+		        },{
+		            "Name" : "Berglunds snabbköp",
+		            "Country" : "Sweden"
+		        },{
+		            "Name" : "Centro comercial Moctezuma",
+		            "Country" : "Mexico"
+		        },{
+		            "Name" : "Ernst Handel",
+		            "Country" : "Austria"
+		        }
+		    ];
+		});
+		app.controller("myCtrl3",function($scope) {
+			$scope.myObj = {
+		        "Name" : "Alfreds Futterkiste",
+		        "Country" : "Germany",
+		        "City" : "Berlin"
+		    };
+		});
+	</script>
+</body>
+</html>

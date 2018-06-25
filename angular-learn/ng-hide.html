@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-hide指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>隐藏或显示 HTML 元素</h1>
+	隐藏 HTML: <input type="checkbox" ng-model="myVar">
+	<div ng-hide="myVar">
+		<h1>Welcome</h1>
+		<p>Welcome to my home.</p>
+	</div>
+	<div class="ng-hide">
+		<p>this element is hide.</p>
+	</div>
+	<br>
+	<p>说明：指令在表达式为true时隐藏元素。</p>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-src指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1 ng-bind-template="指定 <img> 元素的 src 属性"></h1>
+	<div ng-controller="myCtrl">
+		<h1>Angular</h1>
+    	<img ng-src="{{myVar}}" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_fe6da1ec.png">
+	</div>
+	<p>说明：<span ng-bind-template="覆盖了 <img> 元素的 src 属性"></span>，确保的 AngularJS 代码执行前不显示图片。</p>
+	<p ng-bind-template="<img> 元素支持该属性"></p>
+	<script>
+		angular.module("myApp",[]).controller("myCtrl",function($scope) {
+			$scope.myVar = "http://www.runoob.com/wp-content/uploads/2014/06/angular.jpg";
+		});
+	</script>
+</body>
+</html>

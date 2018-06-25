@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-options指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1 ng-bind-template="在 <select> 列表中指定 <options>"></h1>
+	<div ng-controller="myCtrl">
+		<select ng-model="selectedName" ng-options="item for item in names"></select>
+	</div>
+	<p>说明：<span ng-bind-template="用于使用 <options> 填充 <select> 元素的选项"></span>，使用数组来填充下拉列表，多数情况下与 ng-repeat 指令一起使用。</p>
+	<script>
+		angular.module('myApp', []).controller('myCtrl',function($scope) {
+			$scope.names = ["Emil", "Tobias", "Linus"];
+		});
+	</script>
+</body>
+</html>

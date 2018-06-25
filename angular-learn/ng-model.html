@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-model指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>绑定 HTML 控制器的值到应用数据</h1>
+	<div ng-controller="myCtrl">
+		<input type="text" ng-model="name">
+	</div>
+	<p>说明：绑定了 HTML 表单元素到 scope 变量中，如果 scope 中不存在变量, 将会创建它。</p>
+	<p ng-bind-template="<input>, <select>, <textarea>, 元素支持该指令。"></p>
+	<script>
+		angular.module("myApp",[]).controller("myCtrl",function($scope) {
+			$scope.name = "King Hub";
+		});
+	</script>
+</body>
+</html>

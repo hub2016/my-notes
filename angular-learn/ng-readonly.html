@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-readonly指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>指定元素的 readonly 属性</h1>
+	<div>
+		勾选复选框设置输入框为只读:<input type="checkbox" ng-model="all">
+		<br>
+		<input type="text" ng-readonly="all">
+	</div>
+	<p>说明：设置表单域(input 或 textarea) 的 readonly 属性，表达式返回 true 则表单域为只读。</p>
+</body>
+</html>

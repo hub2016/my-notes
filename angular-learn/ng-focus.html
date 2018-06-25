@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-focus指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body ng-controller="myCtrl">
+	<h1>规定聚焦事件的行为</h1>
+	<input type="text" ng-focus="countFunc()">
+	<p>{{count}}</p>
+	<p>说明：在元素获取焦点时执行的操作，不会覆盖原生onfocus事件，如被触发，两个都将执行。</p>
+	<p ng-bind-template="<a>, <input>, <select>, <textarea>, 和 window 对象都支持该指令。"></p>
+	<script>
+		angular.module('myApp', []).controller("myCtrl",function($scope) {
+			$scope.count = 0;
+			$scope.countFunc = function() {
+				$scope.count++;
+			};
+		});
+	</script>
+</body>
+</html>

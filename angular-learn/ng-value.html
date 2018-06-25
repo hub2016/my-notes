@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-src指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>规定 input 元素的值</h1>
+	<div ng-controller="myCtrl">
+		<input ng-value="myVar">
+	</div>
+	<p>说明：设置 input 或 select 元素的 value 属性。</p>
+	<p ng-bind-template="<input> 和 <select> 元素支持该属性"></p>
+	<script>
+		angular.module("myApp",[]).controller("myCtrl",function($scope) {
+			$scope.myVar = "Hello Angular!";
+		});
+	</script>
+</body>
+</html>

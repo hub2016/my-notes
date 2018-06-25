@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-bind-template指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>规定要使用模板替换的文本内容</h1>
+	<div ng-bind-template="My name is: {{firstName}} {{lastName}}" ng-controller="myCtrl"></div>
+	<p>说明：将给定表达式的值替换HTML元素的内容，用于需要在元素上绑定多个表达式时。</p>
+	<script>
+		angular.module("myApp",[]).controller("myCtrl",function($scope) {
+			$scope.firstName = "King";
+			$scope.lastName = "Hub";
+		});
+	</script>
+</body>
+</html>

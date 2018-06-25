@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-open指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>指定元素的 open 属性</h1>
+	点击这里显示 details 列表: <input type="checkbox" ng-model="showDetails">
+	<details ng-open="showDetails">
+		<summary>学的不仅是技术，更是梦想！</summary>
+		<p> - AngularJS Study</p>	
+	</details>
+	<p>说明：设置 <strong>details</strong> 列表的 open 属性，如果表达式返回 true 则 details 列表是可见的。<br>
+	注意：目前只有 Opera, Chrome, 和 Safari 浏览器支持 details 标签</p>
+</body>
+</html>

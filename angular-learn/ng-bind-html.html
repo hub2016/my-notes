@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-bind-html指令</title>
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-sanitize.min.js"></script>
+</head>
+<body>
+	<h1>绑定 HTML 元素的 innerHTML 到应用程序数据，并移除 HTML 字符串中危险字符</h1>
+	<div ng-controller="myCtrl">
+		<p ng-bind-html="myText"></p>
+		<p>说明：引入"angular-sanitize.js"模块，使用ngSanitize函数来检测代码的安全性。</p>
+	</div>
+	<script>
+		angular.module("myApp",['ngSanitize']).controller("myCtrl",function($scope) {
+			$scope.myText = "My name is: <h1>King Hub</h1>";
+		});
+	</script>
+</body>
+</html>

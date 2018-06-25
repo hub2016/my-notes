@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-selected指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>指定元素的 selected 属性</h1>
+	<div>
+		点击复选框选择 BMW 选项:<input type="checkbox" ng-model="mySel">
+		<br>
+		我喜欢的车:<br>
+		<select>
+		  <option selected="selected">Volvo</option>
+		  <option ng-selected="mySel">BMW</option>
+		  <option>Ford</option>    
+		</select>
+	</div>
+	<p>说明：<span ng-bind-template="设置 <select> 列表中的 <option> 元素的 selected 属性"></span>，表达式返回 true 则选项被选中。</p>
+</body>
+</html>

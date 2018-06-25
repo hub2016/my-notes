@@ -1,0 +1,43 @@
+问题：启动eclipse时maven插件报错，并且不能编译了。
+
+错误信息：
+Errors occurred during the build.
+Error instantiating builder 'org.eclipse.m2e.core.maven2Builder'.
+Plug-in org.eclipse.m2e.core was unable to load class org.eclipse.m2e.core.internal.builder.MavenBuilder.
+An error occurred while automatically activating bundle org.eclipse.m2e.core (525).
+Plug-in org.eclipse.m2e.core was unable to load class org.eclipse.m2e.core.internal.builder.MavenBuilder.
+An error occurred while automatically activating bundle org.eclipse.m2e.core (525).
+Error instantiating builder 'org.eclipse.m2e.core.maven2Builder'.
+Plug-in org.eclipse.m2e.core was unable to load class org.eclipse.m2e.core.internal.builder.MavenBuilder.
+An error occurred while automatically activating bundle org.eclipse.m2e.core (525).
+Plug-in org.eclipse.m2e.core was unable to load class org.eclipse.m2e.core.internal.builder.MavenBuilder.
+An error occurred while automatically activating bundle org.eclipse.m2e.core (525).
+Error instantiating builder 'org.eclipse.m2e.core.maven2Builder'.
+Plug-in org.eclipse.m2e.core was unable to load class org.eclipse.m2e.core.internal.builder.MavenBuilder.
+An error occurred while automatically activating bundle org.eclipse.m2e.core (525).
+Plug-in org.eclipse.m2e.core was unable to load class org.eclipse.m2e.core.internal.builder.MavenBuilder.
+An error occurred while automatically activating bundle org.eclipse.m2e.core (525).
+Error instantiating builder 'org.eclipse.m2e.core.maven2Builder'.
+Plug-in org.eclipse.m2e.core was unable to load class org.eclipse.m2e.core.internal.builder.MavenBuilder.
+An error occurred while automatically activating bundle org.eclipse.m2e.core (525).
+Plug-in org.eclipse.m2e.core was unable to load class org.eclipse.m2e.core.internal.builder.MavenBuilder.
+An error occurred while automatically activating bundle org.eclipse.m2e.core (525).
+Error instantiating builder 'org.eclipse.m2e.core.maven2Builder'.
+Plug-in org.eclipse.m2e.core was unable to load class org.eclipse.m2e.core.internal.builder.MavenBuilder.
+An error occurred while automatically activating bundle org.eclipse.m2e.core (525).
+Plug-in org.eclipse.m2e.core was unable to load class org.eclipse.m2e.core.internal.builder.MavenBuilder.
+An error occurred while automatically activating bundle org.eclipse.m2e.core (525).
+Error instantiating builder 'org.eclipse.m2e.core.maven2Builder'.
+Plug-in org.eclipse.m2e.core was unable to load class org.eclipse.m2e.core.internal.builder.MavenBuilder.
+An error occurred while automatically activating bundle org.eclipse.m2e.core (525).
+Plug-in org.eclipse.m2e.core was unable to load class org.eclipse.m2e.core.internal.builder.MavenBuilder.
+An error occurred while automatically activating bundle org.eclipse.m2e.core (525).
+
+解决方法：
+运行cmd，转到对应项目文件目录（可在eclipse上右键项目，点击下面的Properties，在打开的窗口Resource，复制里面的Location信息）
+输入mvn clean回车，待执行完毕，再
+输入mvn install回车
+重启eclise即可
+
+如果上述方法仍无法解决
+使用其他好的workspace下的\.metadata\.plugins\org.eclipse.e4.workbench\workbench.xmi进行替换，替换后重启eclipse就可以了。

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-href指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>为 a 元素指定链接</h1>
+	<div ng-controller="myCtrl">
+		<p>访问 <a ng-href="{{myVar}}">{{myVar}}</a> 搜索。</p>
+	</div>
+	<p>说明：可以使用了原生的 href 属性，但在 AngularJS 中， ng-href 属性更安全。</p>
+	<script>
+		angular.module("myApp",[]).controller("myCtrl",function($scope) {
+			$scope.myVar = "https://www.baidu.com";
+		});
+	</script>
+</body>
+</html>

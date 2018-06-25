@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-list指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>将文本转换为列表 (数组)</h1>
+	<p>在输入框中，输入一些文本，并使用中文逗号分隔它们：</p>
+	<input type="text" ng-model="customers" ng-list="，">
+	<p>当使用 ng-list 指令时，你的输入信息会转换为数组，如下所示：</p>
+	<pre>{{customers}}</pre>
+	<p>说明：将字符串转换为数组，并使用逗号分隔。</p>
+	<br><br>
+	其他调用方式：
+	<div ng-controller="myCtrl">
+		<input type="text" ng-model="users" ng-list>
+	</div>
+	<script>
+		angular.module("myApp",[]).controller("myCtrl",function($scope) {
+			$scope.users = ["King","Hub"];
+		});
+	</script>
+</body>
+</html>

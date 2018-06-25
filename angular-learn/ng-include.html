@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-include指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>在应用中包含 HTML 文件</h1>
+	<div ng-include="'ng-app.html'"></div>
+	<br>
+	调用方式：
+	<p ng-bind-template='"<element ng-include="filename" onload="expression" autoscroll="expression" ></element>"'></p>
+	<p ng-bind-template='"<ng-include src="filename" onload="expression" autoscroll="expression" ></ng-include>"'></p>
+	<p>说明：用于包含外部HTML文件，包含的内容作为指定元素的子节点，需要在同域下。<br>
+	参数：onload（文件载入后执行的表达式）；<br>
+	autoscroll（包含的部分是否在指定视图上可滚动）</p>
+</body>
+</html>

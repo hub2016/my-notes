@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-model-options指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>规定如何更新模型</h1>
+	<div ng-controller="myCtrl">
+		<input type="text" ng-model="name" ng-model-options="{updateOn:'blur',debounce : 1000}">
+	</div>
+	<p>说明：绑定了 HTML 表单元素到 scope 变量中，可以指定绑定数据触发的时间，或者指定等待多少毫秒，参数设置可以参考以下说明。
+	<br><br>
+	指定了绑定数据的规则，规则如下:<br><br>
+	{updateOn: 'event'}规则指定事件发生后绑定数据<br>
+	{debounce : 1000} 规定等待多少毫秒后绑定数据<br>
+	{allowInvalid : true|false} 规定是否需要验证后绑定数据<br>
+	{getterSetter : true|false} 规定是否作为 getters/setters 绑定到模型<br>
+	{timezone : '0100'} 规则是否使用时区</p>
+	<p ng-bind-template="<input>, <select>, <textarea>, 元素支持该指令。"></p>
+	<script>
+		angular.module("myApp",[]).controller("myCtrl",function($scope) {
+			$scope.name = "King Hub";
+		});
+	</script>
+</body>
+</html>

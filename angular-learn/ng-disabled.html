@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-disabled指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>规定一个元素是否被禁用</h1>
+	禁用表单输入域<input type="checkbox" ng-model="all"><br>
+	<input type="text" ng-disabled="all"><br>
+	<input type="radio" ng-disabled="all"><br>
+	<select ng-disabled="all">
+		<option>Female</option>
+		<option>Male</option>
+	</select>
+	<p>说明：设置表单输入字段的 disabled 属性(input, select, 或 textarea)。</p>
+</body>
+</html>

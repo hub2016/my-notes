@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-show指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>显示或隐藏 HTML 元素</h1>
+	显示 HTML: <input type="checkbox" ng-model="myVar">
+	<div ng-show="myVar">
+		<h1>Welcome</h1>
+		<p>Welcome to my home.</p>
+	</div>
+	<br>
+	<p>说明：在表达式为 true 时显示指定的 HTML 元素，否则隐藏指定的 HTML 元素。</p>
+</body>
+</html>

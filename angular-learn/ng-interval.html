@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="lunbo">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS $interval服务实战</title>
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-animate.min.js"></script>
+	<style>
+		.scroll_img{width: 960px;height: 300px;overflow: hidden;}
+		.scroll_img ul{width: 9600px;padding: 0;margin: 0;transition: 1s ease all;}
+		.scroll_img li{position: relative;list-style: none;padding: 0;margin: 0;width: 960px;height: 300px;float: left;overflow: hidden;}
+		.scroll_img li .tit{position: absolute;left: 0;bottom: 0;width: 100%;background-color: rgba(0,0,0,.6);color: #FFF;padding: 10px 50px;line-height: 20px;text-align: left;font-family:"\5FAE\8F6F\96C5\9ED1";font-size: 20px;box-sizing: border-box;-webkit-box-sizing: border-box;}
+		.scroll_img li .tit small{display: block;text-align: right;font-size: 16px}
+	</style>
+</head>
+<body ng-controller="lunboCtrl">
+	<div class="scroll_img">
+		<ul ng-style="moveLeft">
+			<li ng-repeat="x in items">
+				<a ng-href="{{x.url}}">
+					<img title="{{x.tit}}" alt="{{x.tit}}" ng-src="{{x.src}}">
+					<div class="tit">{{x.tit}}<small>{{x.subtit}}</small></div>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<script>
+		var app = angular.module('lunbo',['ngAnimate']);
+		app.controller("lunboCtrl",function($scope,$interval) {
+			$scope.items = [
+				{src:"img/1.jpg","tit":"带着你的相机去旅行","subtit":"心有多大，外面的世界就有多大\n准备好你的相机，用照片带大家去旅行吧",url:"http://www.asj.com/"},
+				{src:"img/2.jpg","tit":"家有萌猫","subtit":"你是否有一个超萌的猫咪呢\n赶紧晒出它卖萌的照片，让他家都羡慕一下吧",url:"http://www.asj.com/"},
+				{src:"img/3.jpg","tit":"记录这些甜蜜的瞬间","subtit":"快来上传你的婚纱照片\n和大家一起分享这最美最甜蜜的瞬间",url:"http://www.asj.com/"},
+				{src:"img/4.jpg","tit":"艺术照也能拍出模特大片范儿","subtit":"最美艺术照展示，见证最美最有明星范的你",url:"http://www.asj.com/"},
+				{src:"img/5.jpg","tit":"中国印象记忆照片展","subtit":"一张张泛黄的老照片，封藏在心许\n多年的秘密，记录了似乎岁年华",url:"http://www.asj.com/"}
+			];
+			$scope.marginLeft = 0;
+			$interval(function() {
+				$scope.marginLeft = $scope.marginLeft > -3840 ? $scope.marginLeft-960 : 0;
+				$scope.moveLeft = {
+			        "margin-left" : $scope.marginLeft+"px"
+			    };
+			},3000);
+		});
+	</script>
+</body>
+</html>

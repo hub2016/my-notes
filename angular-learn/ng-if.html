@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-if指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>如果条件为 true 移除 HTML 元素</h1>
+	<div ng-controller="myCtrl">
+		保留 HTML: <input type="button" ng-click="toggle()" value="{{btnVar}}">
+		<div ng-if="myVar">
+			<h1>Welcome</h1>
+			<p>Welcome to my home.</p>
+		</div>
+	</div>
+	<p>说明：表达式为false时<strong>移除</strong>元素，为true时<strong>添加</strong>元素并显示。</p>
+	<script>
+		angular.module("myApp",[]).controller("myCtrl",function($scope) {
+			$scope.myVar = true;
+			$scope.btnVar = "隐藏";
+			$scope.toggle = function() {
+				$scope.myVar = !$scope.myVar;
+				$scope.btnVar = $scope.myVar?"隐藏":"显示";
+			};
+		});
+	</script>
+</body>
+</html>

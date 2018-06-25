@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS ng-csp指令</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>修改内容的安全策略</h1>
+	<div ng-csp>
+		<p>My first expression {{ 5 + 5 }}</p>
+		<p>使用 ng-csp 指令, 你可以修改 AngularJS 执行代码的方式。</p>
+		<p>AngularJS 的执行方式提高了 30% 的性能</p>
+	</div>
+	<p>说明：修改安全策略，不设置值，no-unsafe-eval，no-inline-style<br>
+	不设置值：不会执行eval 函数，无法注入内联样式<br>
+	no-unsafe-eval：阻止 AngularJS 执行 eval 函数，但允许注入内联样式<br>。
+	no-inline-style：阻止 AngularJS 注入内联样式，但允许 执行 eval 函数
+	<br><br>
+	开发 Google Chrome 扩展或 Windows 应用 ng-csp 指令是必须的
+	<br><br>
+	注意:ng-csp 指令不会影响 JavaScript,但会修改 AngularJS 的工作方式，这就意味着: 你仍然可以编写 eval 函数, 且也可以正常执行, 但是 AngularJS 不能执行它自己的 eval 函数。如果采用兼容模式，会降低 30% 的性能。</p>
+</body>
+</html>
